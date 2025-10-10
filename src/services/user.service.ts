@@ -29,8 +29,12 @@ export class UserService {
 
     static login(email: string, password: string){
         try {
-        const user = this.findUserByEmail(email)
-        return user.password === password
+            const user = this.findUserByEmail(email)
+            if (user.password === password){
+                localStorage.setItem('icr_active', user.email)
+                return true
+            }
+            return false
         } catch {
             return false
         }    
