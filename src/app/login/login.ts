@@ -26,7 +26,7 @@ export class Login {
       return
     }
 
-    if (UserService.login(this.form.value.email, this.form.value.password)){
+    if (!UserService.login(this.form.value.email, this.form.value.password)){
       Swal.fire('Invalid credentials!')
       return
     }
