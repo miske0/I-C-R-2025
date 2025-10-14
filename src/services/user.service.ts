@@ -12,7 +12,7 @@ export class UserService {
                     lastName: "Example1",
                     email: "user@example.com",
                     phone: "0606666611",
-                    password: "password",
+                    password: "1234",
                     data: [],
                 }
             ]))

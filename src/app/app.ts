@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
+import { Utils } from './utils';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 export class App {
   protected year = new Date().getFullYear()
   
-  constructor(private router: Router) {}
+  constructor(private router: Router, private utils: Utils) {}
 
   getUserName(){
     const user = UserService.getActiveUser()
@@ -28,7 +29,8 @@ export class App {
       title: "Are you sure you want to logout?",
       showCancelButton: true,
       confirmButtonText: "Logout Now",
-      denyButtonText: `Don't Logout`
+      denyButtonText: `Don't Logout`,
+      customClass: this.utils.bootstrapClasses
     }).then((result) => {
       if (result.isConfirmed) {
         UserService.logout()
