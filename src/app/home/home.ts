@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { MovieModel } from '../../models/movie.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
